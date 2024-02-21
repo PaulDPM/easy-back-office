@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/_HOMEPAGE_/static/css/main.ac58d18f.css",
+    "main.js": "/_HOMEPAGE_/static/js/main.0daa89ee.js",
+    "static/media/gt-eesti-medium.woff": "/_HOMEPAGE_/static/media/gt-eesti-medium.a48c02fa57e83ab6ddcd.woff",
+    "static/media/gt-eesti-regular.woff": "/_HOMEPAGE_/static/media/gt-eesti-regular.304a7ae06ee4a4d5d04a.woff",
+    "static/media/logo.png": "/_HOMEPAGE_/static/media/logo.e407b9ca7e302466a07d.png",
+    "static/media/cubano.woff": "/_HOMEPAGE_/static/media/cubano.4eaa47ef94222121a371.woff",
+    "index.html": "/_HOMEPAGE_/index.html",
+    "main.ac58d18f.css.map": "/_HOMEPAGE_/static/css/main.ac58d18f.css.map",
+    "main.0daa89ee.js.map": "/_HOMEPAGE_/static/js/main.0daa89ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac58d18f.css",
+    "static/js/main.0daa89ee.js"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "@galadrim/galadmin",
+  "version": "0.1.93",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@emotion/react": "^11.11.1",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "argon2": "^0.31.2",
+    "aws-sdk": "^2.958.0",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^9.0.0",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.6",
+    "express-session": "^1.17.2",
+    "image-size": "^1.0.0",
+    "mime": "^2.5.2",
+    "moment": "^2.29.1",
+    "multiparty": "^4.2.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "pg": "^8.11.3",
+    "rollup": "^2.56.2",
+    "serialize-javascript": "^6.0.0",
+    "ssh2-sftp-client": "^9.0.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/express-session": "1.17.0",
+    "@types/mime": "^2.0.3",
+    "@types/node": "^16.18.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galadrimteam/galadmin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/galadrimteam/galadmin/issues"
+  },
+  "homepage": "https://github.com/galadrimteam/galadmin#readme",
+  "description": ""
+}

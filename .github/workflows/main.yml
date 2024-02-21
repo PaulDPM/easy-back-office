@@ -1,0 +1,40 @@
+name: Build and deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: 'Automated Version Bump'
+        uses: 'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dependencies installation
+        run: npm install
+      - name: Front-end - Load cache
+        uses: actions/cache@v2
+        with:
+          path: '**/src/front/node_modules'
+          key: ${{ runner.os }}-npm-front-${{ hashFiles('**/src/front/package-lock.json') }}
+      - name: Front-end - Dependencies installation
+        run: npm install
+        working-directory: ./src/front
+      - name: Front-end - Generate build
+        run: npm run build
+        working-directory: ./src/front
+      - name: Generate build
+        run: npm run build
+      - name: Publish package
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
