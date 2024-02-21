@@ -1,6 +1,6 @@
 {
-  "short_name": "Galadmin",
-  "name": "Galadmin",
+  "short_name": "Back-Office",
+  "name": "Back-Office",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

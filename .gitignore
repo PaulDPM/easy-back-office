@@ -6,3 +6,4 @@ npm-debug.log
 .nyc
 .env
 .DS_Store
+src/frontend/node_modules
