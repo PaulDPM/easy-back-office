@@ -1,17 +1,18 @@
 export type Filter = {};
 export type BaseTypeColumn = {
-    label: string;
-    hideInTable?: boolean;
-    canEditOnCreation?: boolean;
-    includedInCreatePayload?: boolean;
-    canEdit?: boolean;
-    hidden?: boolean;
-    formattedValue?: string;
-    formatValue?: (record: any) => string | Promise<string>;
-    searchable?: boolean;
-    searchableName?: string;
-    labelTooltip?: string;
-    required?: boolean;
+  label: string;
+  hideInTable?: boolean;
+  hideInDetails?: boolean;
+  canEditOnCreation?: boolean;
+  includedInCreatePayload?: boolean;
+  canEdit?: boolean;
+  hidden?: boolean;
+  formattedValue?: string;
+  formatValue?: (record: any) => string | Promise<string>;
+  searchable?: boolean;
+  searchableName?: string;
+  labelTooltip?: string;
+  required?: boolean;
 };
 export type ColorColumn = {
     dataType: 'color';
