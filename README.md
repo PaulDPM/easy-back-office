@@ -1,12 +1,12 @@
-# Galadmin
+# Easy Back-Office
 
-Galadmin is a tool that let you setup a pretty back-office in minutes. It works
+Easy Back-Office is a tool that let you setup a pretty back-office in minutes. It works
 with any MySQL database.
 
 ## Quick start
 
 ```bash
-npm install @galadrim/galadmin
+npm install easy-back-office
 ```
 
 ### Integration in a NestJS app
@@ -14,16 +14,16 @@ npm install @galadrim/galadmin
 Put this piece of code in your `src/main.ts` file:
 
 ```js
-import galadmin from '@galadrim/galadmin';
-import { Config } from '@galadrim/galadmin/dist/types/Config';
+import galadmin from 'easy-back-office';
+import { Config } from 'easy-back-office/dist/types/Config';
 
 const adminConfig: Config = { ... }
-    
+
 app.getHttpAdapter().use('/admin', galadmin(adminConfig));
 ```
 
 If you are using Prisma ORM, add the following code to your `schema.prisma`.
-Galadmin will create a table in your database, and Prisma won't be able to
+Easy Back-Office will create a table in your database, and Prisma won't be able to
 perform migrations correctly if we don't specify it.
 
 ```prisma
@@ -37,9 +37,9 @@ model galadmin_sessions {
 ### Integration in an Express app
 
 ```js
-const galadmin = require("@galadrim/galadmin").default;
+const galadmin = require('easy-back-office').default;
 
-app.use("/admin", galadmin(adminConfig));
+app.use('/admin', galadmin(adminConfig));
 ```
 
 ### What is adminConfig?
@@ -51,30 +51,35 @@ about your back-office. Its properties are listed below.
 
 ```js
 const adminConfig = {
-  name: "Mon projet",
-  sessionSecret: "chapeaumelon",
+  name: 'Mon projet',
+  sessionSecret: 'chapeaumelon',
   auth: {
-    username: "user",
-    password: "password",
+    username: 'user',
+    password: 'password',
   },
   mysql: {
-    host: "abc.example.com",
-    user: "root",
-    password: "password",
-    database: "monprojet",
+    host: 'abc.example.com',
+    user: 'root',
+    password: 'password',
+    database: 'monprojet',
   },
-  views: [{
-    type: "table",
-    label: "Fruits",
-    tableName: "fruits",
-    columns: [{
-      label: "Nom",
-      name: "fruitName",
-    }, {
-      label: "Acidité",
-      name: "acidity",
-    }],
-  }],
+  views: [
+    {
+      type: 'table',
+      label: 'Fruits',
+      tableName: 'fruits',
+      columns: [
+        {
+          label: 'Nom',
+          name: 'fruitName',
+        },
+        {
+          label: 'Acidité',
+          name: 'acidity',
+        },
+      ],
+    },
+  ],
 };
 ```
 
@@ -83,30 +88,30 @@ const adminConfig = {
 ```js
 const adminConfig = {
   /** Nom du projet (OBLIGATOIRE) */
-  name: "Mon projet",
+  name: 'Mon projet',
 
   /** Chaîne de caractères aléatoires qui permet de chiffrer les cookies de session (OBLIGATOIRE) */
-  sessionSecret: "chapeaumelon",
+  sessionSecret: 'chapeaumelon',
 
   /** Identifiants permettant d'accéder au back-office (OBLIGATOIRE) */
   auth: {
     /** Nom d'utilisateur */
-    username: "user",
+    username: 'user',
 
     /** Password */
-    password: "password",
+    password: 'password',
   },
 
   /** Identifiants de connexion à la base de données (OBLIGATOIRE) */
   mysql: {
-    host: "abc.example.com",
-    user: "root",
-    password: "password",
-    database: "monprojet",
+    host: 'abc.example.com',
+    user: 'root',
+    password: 'password',
+    database: 'monprojet',
   },
 
   /** Clé API Google Maps pour les champs adresses et l'affichage de cartes */
-  googleMapsKey: "______",
+  googleMapsKey: '______',
 
   /** Désactiver la sélection multiple dans les vues de type table */
   hideMultiselect: true,
@@ -114,72 +119,76 @@ const adminConfig = {
   /** Cache l'inscription Made with love by Galadrim */
   hideBranding: true,
 
-  views: [{
-    /** Vue de type "table" */
-    type: "table",
+  views: [
+    {
+      /** Vue de type "table" */
+      type: 'table',
 
-    /** Nom affiché de la vue */
-    label: string,
+      /** Nom affiché de la vue */
+      label: string,
 
-    /** Icône FontAwesome de la vue dans le menu. user affiche l'icône fa-user. */
-    icon: "user",
+      /** Icône FontAwesome de la vue dans le menu. user affiche l'icône fa-user. */
+      icon: 'user',
 
-    /** Nom de la table MySQL */
-    tableName: "users",
+      /** Nom de la table MySQL */
+      tableName: 'users',
 
-    /** Nombre de résultats par page */
-    limit: 100,
+      /** Nombre de résultats par page */
+      limit: 100,
 
-    /**
-     * Ces champs permettent de personnaliser la requête MySQL qui gère l'affichage de la table.
-     * Ils sont tous optionnels.
-     *
-     * SELECT {selectExpression} FROM {tableName} {join} WHERE {filters} GROUP BY {groupBy} ORDER BY {orderBy} {desc ? "DESC" : ""}
-     */
-    selectExpression: "*, MAX(age) AS maxAge",
-    join: "JOIN activities ON users.activity_id = activities.id",
-    groupBy: "activity_id",
-    orderBy: "maxAge",
-    isDesc: true,
-    filters: "age < 50",
+      /**
+       * Ces champs permettent de personnaliser la requête MySQL qui gère l'affichage de la table.
+       * Ils sont tous optionnels.
+       *
+       * SELECT {selectExpression} FROM {tableName} {join} WHERE {filters} GROUP BY {groupBy} ORDER BY {orderBy} {desc ? "DESC" : ""}
+       */
+      selectExpression: '*, MAX(age) AS maxAge',
+      join: 'JOIN activities ON users.activity_id = activities.id',
+      groupBy: 'activity_id',
+      orderBy: 'maxAge',
+      isDesc: true,
+      filters: 'age < 50',
 
-    /** Lorsque notClickable est à true, les résultats ne sont pas cliquables. (default: false) */
-    notClickable: true,
+      /** Lorsque notClickable est à true, les résultats ne sont pas cliquables. (default: false) */
+      notClickable: true,
 
-    /** Rendre possible de créer des enregistrements (default: false) */
-    canCreate: true,
+      /** Rendre possible de créer des enregistrements (default: false) */
+      canCreate: true,
 
-    /** Groupe nominal "un nouvel élément" */
-    aNewSingular: "un nouvel utilisateur",
+      /** Groupe nominal "un nouvel élément" */
+      aNewSingular: 'un nouvel utilisateur',
 
-    /** Rendre possible de supprimer des enregistrements (default: true) */
-    canDelete: true,
+      /** Rendre possible de supprimer des enregistrements (default: true) */
+      canDelete: true,
 
-    /** Rendre possible de modifier des enregistrements (default: true) */
-    canEdit: true,
+      /** Rendre possible de modifier des enregistrements (default: true) */
+      canEdit: true,
 
-    /** URL appelée en POST lors de la création d'un nouvel élément, avec l'ID de l'élément créé */
-    createCallback: "https://myapi.com/createCallback",
+      /** URL appelée en POST lors de la création d'un nouvel élément, avec l'ID de l'élément créé */
+      createCallback: 'https://myapi.com/createCallback',
 
-    editCallback: "https://myapi.com/editCallback",
-    deleteCallback: "https://myapi.com/deleteCallback",
+      editCallback: 'https://myapi.com/editCallback',
+      deleteCallback: 'https://myapi.com/deleteCallback',
 
-    columns: [{
-      /** Nom affiché de la colonne (OBLIGATOIRE) */
-      label: "Poids",
+      columns: [
+        {
+          /** Nom affiché de la colonne (OBLIGATOIRE) */
+          label: 'Poids',
 
-      /** Nom de la colonne dans la table MySQL */
-      name: "weight",
+          /** Nom de la colonne dans la table MySQL */
+          name: 'weight',
 
-      /** Formatter la valeur avant de l'afficher */
-      formatValue: (user) => `${user.weight} kg`,
+          /** Formatter la valeur avant de l'afficher */
+          formatValue: (user) => `${user.weight} kg`,
 
-      /** Masquer la colonne dans la liste des résultats et ne l'afficher que dans le détail (default: false) */
-      hideInTable: true,
-    }],
-    subviews: [],
-    recordViewPanels: [],
-  }],
+          /** Masquer la colonne dans la liste des résultats et ne l'afficher que dans le détail (default: false) */
+          hideInTable: true,
+        },
+      ],
+      subviews: [],
+      recordViewPanels: [],
+    },
+  ],
 };
 ```
 
@@ -206,7 +215,6 @@ upload of a file onto AWS S3. A basic configuration would be as follow:
     },
   }]
 ```
-
 
 ### File upload on a remote server (via SFTP)
 

@@ -1,6 +1,6 @@
 {
-  "name": "@galadrim/galadmin",
-  "version": "0.1.93",
+  "name": "easy-back-office",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -43,11 +43,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/galadrimteam/galadmin.git"
+    "url": "git+https://github.com/PaulDPM/easy-back-office.git"
   },
   "bugs": {
-    "url": "https://github.com/galadrimteam/galadmin/issues"
+    "url": "https://github.com/PaulDPM/easy-back-office/issues"
   },
-  "homepage": "https://github.com/galadrimteam/galadmin#readme",
+  "homepage": "https://github.com/PaulDPM/easy-back-office#readme",
   "description": ""
 }
