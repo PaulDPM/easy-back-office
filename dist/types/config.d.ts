@@ -1,18 +1,18 @@
 export type Filter = {};
 export type BaseTypeColumn = {
-  label: string;
-  hideInTable?: boolean;
-  hideInDetails?: boolean;
-  canEditOnCreation?: boolean;
-  includedInCreatePayload?: boolean;
-  canEdit?: boolean;
-  hidden?: boolean;
-  formattedValue?: string;
-  formatValue?: (record: any) => string | Promise<string>;
-  searchable?: boolean;
-  searchableName?: string;
-  labelTooltip?: string;
-  required?: boolean;
+    label: string;
+    hideInTable?: boolean;
+    hideInDetails?: boolean;
+    canEditOnCreation?: boolean;
+    includedInCreatePayload?: boolean;
+    canEdit?: boolean;
+    hidden?: boolean;
+    formattedValue?: string;
+    formatValue?: (record: any) => string | Promise<string>;
+    searchable?: boolean;
+    searchableName?: string;
+    labelTooltip?: string;
+    required?: boolean;
 };
 export type ColorColumn = {
     dataType: 'color';
@@ -84,12 +84,12 @@ export type TextareaColumn = {
     name: string;
 };
 export type RichTextColumn = {
-    dataType: "richText";
+    dataType: 'richText';
     htmlField: string;
     contentField?: string;
 };
 export type BetterRichTextColumn = {
-    dataType: "betterRichText";
+    dataType: 'betterRichText';
     htmlField: string;
     fileUploadProperties?: FileUploadProperties;
 };
@@ -202,7 +202,7 @@ export type CreateConfig = {
     redirectToCreatedItems?: boolean;
 };
 export type TablePanel = {
-    type: "table";
+    type: 'table';
     query: string;
     formattedQuery?: string;
     canDownload?: boolean;
@@ -229,14 +229,14 @@ export type TablePanel = {
     }) => void;
 };
 export type MapPanel = {
-    type: "map";
+    type: 'map';
     query: string;
     latitudeField: string;
     longitudeField: string;
     zoom?: number;
 };
 export type GalleryPanel = {
-    type: "gallery";
+    type: 'gallery';
     query: string;
     canDelete?: boolean;
     canCreate?: boolean;
@@ -257,7 +257,7 @@ export type GalleryPanel = {
     }) => void;
 };
 export type ChatPanel = {
-    type: "chat";
+    type: 'chat';
     getMessagesQuery: string;
     postMessageUrl: string;
     messageField: string;
